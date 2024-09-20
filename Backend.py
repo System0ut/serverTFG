@@ -22,7 +22,7 @@ def cargar_y_preprocesar_imagen(ruta_imagen, tamaño_imagen=(224, 224)):
 # ruta_imagen = 'assets/fotoRandom2.jpg'
 def predecirEspecie(rutaImagen):
     # Preprocesar la imagen
-    imagen_preprocesada = cargar_y_preprocesar_imagen(ruta_imagen)
+    imagen_preprocesada = cargar_y_preprocesar_imagen(rutaImagen)
 
     # Hacer la predicción
     umbral = 0.7
