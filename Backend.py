@@ -6,16 +6,6 @@ import numpy as np
 import os
 
 model = load_model('modelo_setas.h5')
-ruta_entrenamiento = 'C:/Users/Borja/Documents/Borja_coses/tfg/dataset/setas'
-
-
-train_datagen = ImageDataGenerator(rescale=1./255)
-train_generator = train_datagen.flow_from_directory(
-    ruta_entrenamiento,
-    target_size=(224, 224),
-    batch_size=32,
-    class_mode='categorical'
-)
 
 def cargar_y_preprocesar_imagen(ruta_imagen, tamaño_imagen=(224, 224)):
     # Cargar la imagen
@@ -29,7 +19,7 @@ def cargar_y_preprocesar_imagen(ruta_imagen, tamaño_imagen=(224, 224)):
     return img_array
 
 # Ruta de la imagen a predecir
-ruta_imagen = 'assets/fotoRandom2.jpg'
+# ruta_imagen = 'assets/fotoRandom2.jpg'
 def predecirEspecie(rutaImagen):
     # Preprocesar la imagen
     imagen_preprocesada = cargar_y_preprocesar_imagen(ruta_imagen)
@@ -43,7 +33,8 @@ def predecirEspecie(rutaImagen):
     clase_predicha = np.argmax(prediccion, axis=1)
 
     # Obtener el nombre de las clases (en el orden en que aparecen en el generador)
-    nombres_clases = list(train_generator.class_indices.keys())
+    nombres_clases = ['Amanita muscaria','Fomes fomentarius','Fomitopsis pinicola','Hypogymnia physodes',
+                      'Laetiporus sulphureus','Parmelia sulcata','Xanthoria parietina']
 
     # Mostrar el nombre de la clase predicha
     if probabilidad_max < umbral:
