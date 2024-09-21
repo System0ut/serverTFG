@@ -33,8 +33,8 @@ def predecirEspecie(rutaImagen):
     clase_predicha = np.argmax(prediccion, axis=1)
 
     # Obtener el nombre de las clases (en el orden en que aparecen en el generador)
-    nombres_clases = ['Amanita muscaria','Fomes fomentarius','Fomitopsis pinicola','Hypogymnia physodes',
-                      'Laetiporus sulphureus','Parmelia sulcata','Xanthoria parietina']
+    nombres_clases = ['Amanita muscaria: Venenosa','Fomes fomentarius: Venenosa','Fomitopsis pinicola: Toxica','Hypogymnia physodes: Comestible',
+                      'Laetiporus sulphureus: Comestible','Parmelia sulcata: Venenosa','Xanthoria parietina: Medicinal']
 
     # Mostrar el nombre de la clase predicha
     if probabilidad_max < umbral:
